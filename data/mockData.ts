@@ -1,5 +1,8 @@
 
 
+
+
+
 import { Product, Customer, Supplier, Sale, Settings, Notification, Purchase, User, DueCollection, Printer, CardMachine, BluetoothDevice, NetworkDevice, ProductCategory, DiscountOffer, ServicePurchase, AttendanceMachine, DamagedProduct } from '../types';
 
 export const MOCK_PRODUCT_CATEGORIES: ProductCategory[] = [
@@ -184,7 +187,7 @@ export const MOCK_DAMAGED_PRODUCTS: DamagedProduct[] = [];
 
 export const MOCK_SETTINGS: Settings = {
   shopName: 'Mariam Telecom And Enterprise',
-  shopAddress: '5520-Tushbhander, Lalmonirhat',
+  shopAddress: '5520-Tushbhander Railway Station,Kaliganj Bazar, Lalmonirhat',
   shopPhone: '+8801521761658',
   shopLogo: 'https://lh6.googleusercontent.com/-oELHr9rynhW3Dhp646zws5OzLVEIEtgIJDieD3EIF4c6Qfi5Sv3PsroxThOmi3WIJp7GKlX-q58InXk4Vzm1y5fE9PJ1qjFEmZjoR__UMvnersC6S6lT9m9xcD4z3RE4rQCPwOs_qc=w1280',
   footerText: '© 2025 Mariam Telecom And Enterprise. All Rights Reserved.',
@@ -210,8 +213,8 @@ export const MOCK_SETTINGS: Settings = {
   defaultPrintFormat: 'invoice',
   warrantyAndGuarantyEnabled: true,
   countdownOfferEnabled: true,
-  countdownOfferText: 'Grand Opening Sale Ends In:',
-  countdownOfferExpiry: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000).toISOString(), // 5 days from now
+  countdownOfferText: 'Special Edition for : MTAE',
+  countdownOfferExpiry: new Date(2028, 7, 20, 12, 22).toISOString(),
   specialOffersEnabled: true,
   specialOffers: MOCK_OFFERS,
   twoFactorEnabled: false,
