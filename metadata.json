@@ -1,0 +1,8 @@
+{
+  "name": "Super Shop",
+  "description": "A comprehensive Point-of-Sale and inventory management application, featuring smart analytics powered by Gemini.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "prompt": ""
+}

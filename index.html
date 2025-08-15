@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.25m11.25 0h8.25m-16.5 0H21m-16.5 0V8.25a2.25 2.25 0 012.25-2.25h12A2.25 2.25 0 0121 8.25V21' /%3E%3C/svg%3E" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inventory Management Application</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;700&family=Inter:wght@400;500;700&family=Noto+Sans+Bengali:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans:wght@400;500;700&family=Rubik:wght@400;500;700&family=Source+Code+Pro:wght@400;500;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+                mono: ['"Source Code Pro"', 'monospace'],
+            },
+            colors: {
+              primary: {
+                50: 'rgb(var(--primary-50) / <alpha-value>)',
+                100: 'rgb(var(--primary-100) / <alpha-value>)',
+                200: 'rgb(var(--primary-200) / <alpha-value>)',
+                300: 'rgb(var(--primary-300) / <alpha-value>)',
+                400: 'rgb(var(--primary-400) / <alpha-value>)',
+                500: 'rgb(var(--primary-500) / <alpha-value>)',
+                600: 'rgb(var(--primary-600) / <alpha-value>)',
+                700: 'rgb(var(--primary-700) / <alpha-value>)',
+                800: 'rgb(var(--primary-800) / <alpha-value>)',
+                900: 'rgb(var(--primary-900) / <alpha-value>)',
+                950: 'rgb(var(--primary-950) / <alpha-value>)',
+              },
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      :root {
+        --font-family: 'Inter', sans-serif;
+
+        /* Default theme: astra (Violet / Purple) */
+        --primary-50: 245 243 255;
+        --primary-100: 237 233 254;
+        --primary-200: 221 214 254;
+        --primary-300: 196 181 253;
+        --primary-400: 167 139 250;
+        --primary-500: 139 92 246;
+        --primary-600: 124 58 237;
+        --primary-700: 109 40 217;
+        --primary-800: 91 33 182;
+        --primary-900: 76 29 149;
+        --primary-950: 46 16 101;
+      }
+      
+      html.light {
+        /* Indigo theme */
+        --primary-50: 238 242 255;
+        --primary-100: 224 231 255;
+        --primary-200: 199 210 254;
+        --primary-300: 165 180 252;
+        --primary-400: 129 140 248;
+        --primary-500: 99 102 241;
+        --primary-600: 79 70 229;
+        --primary-700: 67 56 202;
+        --primary-800: 55 48 163;
+        --primary-900: 49 46 129;
+        --primary-950: 30 27 75;
+      }
+
+      html.light-green {
+        /* Light green theme */
+        --primary-50: 240 253 244;
+        --primary-100: 220 252 231;
+        --primary-200: 187 247 208;
+        --primary-300: 134 239 172;
+        --primary-400: 74 222 128;
+        --primary-500: 34 197 94;
+        --primary-600: 22 163 74;
+        --primary-700: 21 128 61;
+        --primary-800: 22 101 52;
+        --primary-900: 20 83 45;
+        --primary-950: 5 46 22;
+      }
+      
+      html.amber {
+        --primary-50: 255 251 235;
+        --primary-100: 254 243 199;
+        --primary-200: 253 230 138;
+        --primary-300: 252 211 77;
+        --primary-400: 251 191 36;
+        --primary-500: 245 158 11;
+        --primary-600: 217 119 6;
+        --primary-700: 180 83 9;
+        --primary-800: 146 64 14;
+        --primary-900: 120 53 15;
+        --primary-950: 69 28 8;
+      }
+      
+      html.rose {
+        --primary-50: 255 241 242;
+        --primary-100: 255 228 230;
+        --primary-200: 254 205 211;
+        --primary-300: 253 164 175;
+        --primary-400: 251 113 133;
+        --primary-500: 244 63 94;
+        --primary-600: 225 29 72;
+        --primary-700: 190 18 60;
+        --primary-800: 159 18 57;
+        --primary-900: 136 19 55;
+        --primary-950: 76 5 25;
+      }
+      
+      html.teal {
+        --primary-50: 240 253 250;
+        --primary-100: 204 251 241;
+        --primary-200: 167 243 208;
+        --primary-300: 110 231 183;
+        --primary-400: 52 211 153;
+        --primary-500: 16 185 129;
+        --primary-600: 5 150 105;
+        --primary-700: 4 120 87;
+        --primary-800: 6 95 70;
+        --primary-900: 6 78 59;
+        --primary-950: 0 50 38;
+      }
+
+      html.slate {
+        /* Cool Gray / Slate theme */
+        --primary-50: 248 250 252;
+        --primary-100: 241 245 249;
+        --primary-200: 226 232 240;
+        --primary-300: 203 213 225;
+        --primary-400: 148 163 184;
+        --primary-500: 100 116 139;
+        --primary-600: 71 85 105;
+        --primary-700: 51 65 85;
+        --primary-800: 30 41 59;
+        --primary-900: 15 23 42;
+        --primary-950: 2 6 23;
+      }
+
+      * {
+        transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+      }
+      body {
+        font-family: var(--font-family);
+      }
+      .dark body {
+        background-color: #0f172a; /* Slate 900 */
+      }
+      
+      .barcode-label {
+          border: 1px dotted #999;
+          padding: 10px;
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+          background: white;
+          color: black;
+          overflow: hidden;
+          page-break-inside: avoid;
+          box-sizing: border-box;
+          width: 100%;
+          height: 100%;
+      }
+      .barcode-label .product-info { width: 100%; }
+      .barcode-label .shop-name { font-size: 10pt; margin-bottom: 2px; }
+      .barcode-label .product-name { font-size: 11pt; font-weight: bold; margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100%;}
+      .barcode-label .price { font-size: 12pt; font-weight: bold; margin-bottom: 4px; }
+      .barcode-label .codes-container { display: flex; justify-content: center; align-items: center; width: 100%; margin-top: 5px; gap: 10px; }
+      .barcode-label svg { height: 40px !important; max-width: 60%; }
+      .barcode-label canvas { width: 60px !important; height: 60px !important; }
+
+      @keyframes fade-in-right {
+        from {
+          opacity: 0;
+          transform: translateX(100%);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes fade-out-right {
+        from {
+          opacity: 1;
+          transform: translateX(0);
+        }
+        to {
+          opacity: 0;
+          transform: translateX(100%);
+        }
+      }
+      
+      @media print {
+        body > #root, .no-print-section {
+          display: none !important;
+        }
+        #portal-root {
+          display: block !important;
+          background: white !important;
+        }
+        
+        .print-modal-content {
+          position: static !important;
+          width: 100% !important;
+          max-width: none !important;
+          height: auto !important;
+          max-height: none !important;
+          box-shadow: none !important;
+          border: none !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          overflow: visible !important;
+        }
+
+        #print-area {
+            color: black !important;
+        }
+        
+        .invoice-page {
+            page-break-after: always;
+        }
+        .invoice-page:last-child {
+            page-break-after: auto;
+        }
+
+        /* Page size rules */
+        @page {
+            size: A4 portrait;
+            margin: 5mm;
+        }
+
+        .print-format-receipt {
+           @page {
+              size: 80mm;
+              margin: 2mm;
+           }
+        }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.1.1/",
+    "react": "https://esm.sh/react@^19.1.1",
+    "react-dom": "https://esm.sh/react-dom@^19.1.1",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.7.1",
+    "recharts": "https://esm.sh/recharts@^3.1.0",
+    "@google/genai": "https://esm.sh/@google/genai@^1.12.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.1/",
+    "@heroicons/react/": "https://esm.sh/@heroicons/react@^2.2.0/",
+    "jspdf": "https://esm.sh/jspdf@^2.5.1",
+    "jspdf-autotable": "https://esm.sh/jspdf-autotable@^3.8.2",
+    "xlsx": "https://esm.sh/xlsx@^0.18.5",
+    "jsbarcode": "https://esm.sh/jsbarcode@^3.11.6",
+    "qrcode": "https://esm.sh/qrcode@^1.5.3",
+    "html2canvas": "https://esm.sh/html2canvas@^1.4.1",
+    "html5-qrcode": "https://esm.sh/html5-qrcode@^2.3.8"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-gray-50 dark:bg-slate-900">
+    <div id="root"></div>
+    <div id="portal-root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
