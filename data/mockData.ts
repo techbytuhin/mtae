@@ -1,8 +1,3 @@
-
-
-
-
-
 import { Product, Customer, Supplier, Sale, Settings, Notification, Purchase, User, DueCollection, Printer, CardMachine, BluetoothDevice, NetworkDevice, ProductCategory, DiscountOffer, ServicePurchase, AttendanceMachine, DamagedProduct } from '../types';
 
 export const MOCK_PRODUCT_CATEGORIES: ProductCategory[] = [
@@ -188,8 +183,8 @@ export const MOCK_DAMAGED_PRODUCTS: DamagedProduct[] = [];
 export const MOCK_SETTINGS: Settings = {
   shopName: 'Mariam Telecom And Enterprise',
   shopAddress: '5520-Tushbhander Railway Station,Kaliganj Bazar, Lalmonirhat',
-  shopPhone: '+8801521761658',
-  shopLogo: 'https://lh6.googleusercontent.com/-oELHr9rynhW3Dhp646zws5OzLVEIEtgIJDieD3EIF4c6Qfi5Sv3PsroxThOmi3WIJp7GKlX-q58InXk4Vzm1y5fE9PJ1qjFEmZjoR__UMvnersC6S6lT9m9xcD4z3RE4rQCPwOs_qc=w1280',
+  shopPhone: '+8801743224300',
+  shopLogo: 'https://bing.com/th/id/BCO.e4793b38-33f6-434a-8d0a-c8c58254c7d3.png',
   footerText: '© 2025 Mariam Telecom And Enterprise. All Rights Reserved.',
   headerMessage: 'Grand Opening! Up to 20% off on selected items.',
   developerName: 'Tarikul Islam Tuhin',
