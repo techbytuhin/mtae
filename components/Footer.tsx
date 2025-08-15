@@ -49,7 +49,7 @@ const Footer: React.FC = () => {
     <footer className="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 py-6">
       <div className="container mx-auto px-4 text-sm text-gray-600 dark:text-gray-400 space-y-4">
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p>{state.settings.footerText}</p>
+            <p>© 2025 {state.settings.shopName}. All Rights Reserved.</p>
             <div className="flex space-x-6">
               {state.settings.socialLinks.map(link => {
                 const SocialIcon = socialIcons[link.platform];

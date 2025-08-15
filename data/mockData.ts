@@ -183,11 +183,11 @@ export const MOCK_DUE_COLLECTIONS: DueCollection[] = [];
 export const MOCK_DAMAGED_PRODUCTS: DamagedProduct[] = [];
 
 export const MOCK_SETTINGS: Settings = {
-  shopName: 'Technical Service Point',
+  shopName: 'Mariam Telecom And Enterprise',
   shopAddress: '5520-Tushbhander, Lalmonirhat',
   shopPhone: '+8801521761658',
   shopLogo: 'https://lh6.googleusercontent.com/-oELHr9rynhW3Dhp646zws5OzLVEIEtgIJDieD3EIF4c6Qfi5Sv3PsroxThOmi3WIJp7GKlX-q58InXk4Vzm1y5fE9PJ1qjFEmZjoR__UMvnersC6S6lT9m9xcD4z3RE4rQCPwOs_qc=w1280',
-  footerText: '© 2025 Technical Service point. All Rights Reserved.',
+  footerText: '© 2025 Mariam Telecom And Enterprise. All Rights Reserved.',
   headerMessage: 'Grand Opening! Up to 20% off on selected items.',
   developerName: 'Tarikul Islam Tuhin',
   developerCompany: '+8801521761658',
